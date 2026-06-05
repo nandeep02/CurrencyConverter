@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <div>
+        <h1>Currency Converter</h1>
+        <p class="status" id="rate-status">Fetching live rates...</p>
+      </div>
+      <button class="refresh-btn" onclick="fetchRates()" id="refresh-btn">
+        &#8635; Refresh
+      </button>
+    </div>
+
+    <div class="card">
+      <label class="card-label">From</label>
+      <div class="card-row">
+        <select id="from-currency" onchange="convert()"></select>
+        <input type="number" id="from-amount" value="1" min="0" step="any" oninput="convert()" />
+      </div>
+      <p class="currency-name" id="from-name"></p>
+    </div>
+
+    <div class="swap-wrap">
+      <button class="swap-btn" onclick="swapCurrencies()" title="Swap currencies">&#8645;</button>
+    </div>
+
+    <div class="card">
+      <label class="card-label">To</label>
+      <div class="card-row">
+        <select id="to-currency" onchange="convert()"></select>
+        <div class="result-amount" id="to-amount">—</div>
+      </div>
+      <p class="currency-name" id="to-name"></p>
+    </div>
+
+    <div class="rate-box">
+      <div class="rate-row">
+        <span>Exchange rate</span>
+        <strong id="rate-display">—</strong>
+      </div>
+      <div class="rate-row">
+        <span>Inverse rate</span>
+        <strong id="inverse-display">—</strong>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Quick amounts</p>
+      <div class="quick-amounts" id="quick-amounts"></div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Popular pairs</p>
+      <div class="pairs-grid" id="popular-pairs"></div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
